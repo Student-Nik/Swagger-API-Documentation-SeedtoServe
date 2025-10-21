@@ -1,0 +1,1199 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/update/product/{name}": {
+      "put": {
+        "tags": [
+          "product-controller"
+        ],
+        "operationId": "updateProduct",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productDto": {
+                    "$ref": "#/components/schemas/ProductDTO"
+                  },
+                  "imageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "productDto"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update/category/{name}": {
+      "put": {
+        "tags": [
+          "category-controller"
+        ],
+        "operationId": "updateCategory",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update/cart/item/{id}": {
+      "put": {
+        "tags": [
+          "cart-item-controller"
+        ],
+        "operationId": "updateCartItemQuantity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update/address/{id}": {
+      "put": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "updateAddress",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressDetailsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register/user": {
+      "post": {
+        "tags": [
+          "register-and-login-controller"
+        ],
+        "operationId": "registerUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterAndSendEmailRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "register-and-login-controller"
+        ],
+        "operationId": "loginUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create/order": {
+      "post": {
+        "tags": [
+          "order-controller"
+        ],
+        "operationId": "createOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create/address": {
+      "post": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "createAddress",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressDetailsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cancel/order/{orderId}/{customerId}": {
+      "post": {
+        "tags": [
+          "order-controller"
+        ],
+        "operationId": "cancelOrder",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/add/product": {
+      "post": {
+        "tags": [
+          "product-controller"
+        ],
+        "operationId": "addProduct",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productDto": {
+                    "$ref": "#/components/schemas/ProductDTO"
+                  },
+                  "imageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "imageFile",
+                  "productDto"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/add/category": {
+      "post": {
+        "tags": [
+          "category-controller"
+        ],
+        "operationId": "addCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/add/cart": {
+      "post": {
+        "tags": [
+          "cart-item-controller"
+        ],
+        "operationId": "addCart",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItemDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show/products": {
+      "get": {
+        "tags": [
+          "product-controller"
+        ],
+        "operationId": "showProducts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show/product/{id}": {
+      "get": {
+        "tags": [
+          "shop-controller"
+        ],
+        "operationId": "getProductDetails",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show/order/{id}": {
+      "get": {
+        "tags": [
+          "order-controller"
+        ],
+        "operationId": "showOrder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show/categories": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "operationId": "showCategories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoryDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show/cart/{id}": {
+      "get": {
+        "tags": [
+          "cart-item-controller"
+        ],
+        "operationId": "showCart",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CartSummaryDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show/address/{id}": {
+      "get": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "showAddress",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/buy/products": {
+      "get": {
+        "tags": [
+          "shop-controller"
+        ],
+        "operationId": "getProductsByCategory",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ProductDTO"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/product/{name}": {
+      "delete": {
+        "tags": [
+          "product-controller"
+        ],
+        "operationId": "deleteProduct",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/category/{name}": {
+      "delete": {
+        "tags": [
+          "category-controller"
+        ],
+        "operationId": "deleteCategory",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/cart/item/{id}": {
+      "delete": {
+        "tags": [
+          "cart-item-controller"
+        ],
+        "operationId": "deleteCartItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/address/{id}": {
+      "delete": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "deleteAddress",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cart/clear/customer/{customerId}": {
+      "delete": {
+        "tags": [
+          "cart-item-controller"
+        ],
+        "operationId": "clearCart",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 10,
+            "minLength": 3
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "maximum": 100000,
+            "minimum": 1
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "categoryName": {
+            "type": "string"
+          },
+          "imageBase64": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "categoryId",
+          "categoryName",
+          "description",
+          "name",
+          "price"
+        ]
+      },
+      "CategoryDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 10,
+            "minLength": 3
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 10
+          }
+        },
+        "required": [
+          "description",
+          "name"
+        ]
+      },
+      "AddressDetailsDTO": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2
+          },
+          "mobileNo": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[6-9]\\d{9}$"
+          },
+          "houseNoOrStreet": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 0
+          },
+          "villageOrTown": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 0
+          },
+          "district": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 0
+          },
+          "state": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 0
+          },
+          "pincode": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[1-9][0-9]{5}$"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "district",
+          "fullName",
+          "houseNoOrStreet",
+          "mobileNo",
+          "pincode",
+          "state",
+          "villageOrTown"
+        ]
+      },
+      "CustomerDTO": {
+        "type": "object",
+        "properties": {
+          "registrationType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "firstName": {
+            "type": "string",
+            "maxLength": 10,
+            "minLength": 3
+          },
+          "lastName": {
+            "type": "string",
+            "maxLength": 10,
+            "minLength": 3
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 16,
+            "minLength": 8,
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "maxLength": 16,
+            "minLength": 8,
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          }
+        },
+        "required": [
+          "confirmPassword",
+          "email",
+          "firstName",
+          "lastName",
+          "password",
+          "registrationType"
+        ]
+      },
+      "Mail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "recipient": {
+            "type": "string",
+            "format": "email"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RegisterAndSendEmailRequestDTO": {
+        "type": "object",
+        "properties": {
+          "customerDto": {
+            "$ref": "#/components/schemas/CustomerDTO"
+          },
+          "mail": {
+            "$ref": "#/components/schemas/Mail"
+          }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "password": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderDTO": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemDTO"
+            }
+          },
+          "addressId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentMethod": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderItemDTO": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productName": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "productImage": {
+            "type": "string"
+          }
+        }
+      },
+      "CartItemDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "customerId",
+          "productId"
+        ]
+      },
+      "OrderResponseDTO": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemDTO"
+            }
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalItems": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "PAID",
+              "PROCESSING",
+              "SHIPPED",
+              "DELIVERED",
+              "CANCELLED",
+              "FAILED"
+            ]
+          },
+          "shippingAddress": {
+            "type": "string"
+          },
+          "orderDate": {
+            "type": "string"
+          },
+          "expectedDeliveryDate": {
+            "type": "string"
+          }
+        }
+      },
+      "CartItemResponse": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productName": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imageBase64": {
+            "type": "string"
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "CartSummaryDTO": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CartItemResponse"
+            }
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}
