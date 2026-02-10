@@ -1,0 +1,2128 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/subjects/add": {
+      "post": {
+        "tags": [
+          "subject-controller"
+        ],
+        "operationId": "addSubject",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubjectDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/{roll}/pay-fees": {
+      "post": {
+        "tags": [
+          "fee-payment-controller"
+        ],
+        "operationId": "payFees",
+        "parameters": [
+          {
+            "name": "roll",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeePaymentDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/{roll}/enroll": {
+      "post": {
+        "tags": [
+          "enrollment-controller"
+        ],
+        "operationId": "enrollStudent",
+        "parameters": [
+          {
+            "name": "roll",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnrollmentDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/faculty/{studentRoll}/marks/exam/{courseId}": {
+      "post": {
+        "tags": [
+          "exam-marks-controller"
+        ],
+        "operationId": "enterExamMarks",
+        "parameters": [
+          {
+            "name": "studentRoll",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExamMarksDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/faculty/{studentRollNo}/marks/internal/{courseId}": {
+      "post": {
+        "tags": [
+          "internal-marks-controller"
+        ],
+        "operationId": "enterInternalMarks",
+        "parameters": [
+          {
+            "name": "studentRollNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalMarksDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/faculty/{facultyId}/attendance/{courseId}": {
+      "post": {
+        "tags": [
+          "attendance-controller"
+        ],
+        "operationId": "markAttendance",
+        "parameters": [
+          {
+            "name": "facultyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttendanceDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/student/register": {
+      "post": {
+        "tags": [
+          "student-controller"
+        ],
+        "operationId": "registerStudent",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/student/login": {
+      "post": {
+        "tags": [
+          "student-controller"
+        ],
+        "operationId": "loginStudent",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseJwtLoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/faculty/register": {
+      "post": {
+        "tags": [
+          "faculty-controller"
+        ],
+        "operationId": "registerFaculty",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacultyDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/faculty/login": {
+      "post": {
+        "tags": [
+          "faculty-controller"
+        ],
+        "operationId": "loginStudent_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseJwtLoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/admin/register": {
+      "post": {
+        "tags": [
+          "admin-controller"
+        ],
+        "operationId": "registerAdmin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/admin/login": {
+      "post": {
+        "tags": [
+          "admin-controller"
+        ],
+        "operationId": "loginStudent_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseJwtLoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/notices": {
+      "post": {
+        "tags": [
+          "notice-controller"
+        ],
+        "operationId": "postNotice",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoticeDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/fee-structure": {
+      "post": {
+        "tags": [
+          "fee-structure-controller"
+        ],
+        "operationId": "feeStructure",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeeStructureDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/create/professional/faculty": {
+      "post": {
+        "tags": [
+          "faculty-professional-controller"
+        ],
+        "operationId": "createPrpfessionalFaculty",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacultyProfessionalDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/assign/subject": {
+      "post": {
+        "tags": [
+          "faculty-subject-controller"
+        ],
+        "operationId": "assignSubject",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacultySubjectDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/add/course": {
+      "post": {
+        "tags": [
+          "course-controller"
+        ],
+        "operationId": "createCourse",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CourseDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/update/student/{id}": {
+      "patch": {
+        "tags": [
+          "student-controller"
+        ],
+        "operationId": "updateStudent",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentUpdateDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/subjects": {
+      "get": {
+        "tags": [
+          "subject-controller"
+        ],
+        "operationId": "getSubjectsByDepartmentAndSemester",
+        "parameters": [
+          {
+            "name": "department",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "semester",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubjectsResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/{studentRoll}/marks/course/{courseCode}": {
+      "get": {
+        "tags": [
+          "student-course-marks-controller"
+        ],
+        "operationId": "getMarkSheetofStudentWithCourse",
+        "parameters": [
+          {
+            "name": "studentRoll",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "courseCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentCourseMarksResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/{studentRoll}/fees-due": {
+      "get": {
+        "tags": [
+          "fee-payment-controller"
+        ],
+        "operationId": "getFeeDue",
+        "parameters": [
+          {
+            "name": "studentRoll",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeesDueResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/{studentRoll}/fee-history": {
+      "get": {
+        "tags": [
+          "fee-payment-controller"
+        ],
+        "operationId": "getFeeHistory",
+        "parameters": [
+          {
+            "name": "studentRoll",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeeHistoryResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/{roll}/courses": {
+      "get": {
+        "tags": [
+          "enrollment-controller"
+        ],
+        "operationId": "getStudentCourses",
+        "parameters": [
+          {
+            "name": "roll",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/show/students": {
+      "get": {
+        "tags": [
+          "student-controller"
+        ],
+        "operationId": "showStudents",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/show/student/{id}": {
+      "get": {
+        "tags": [
+          "student-controller"
+        ],
+        "operationId": "showStudent",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/notices": {
+      "get": {
+        "tags": [
+          "notice-controller"
+        ],
+        "operationId": "getNoticeByTarget",
+        "parameters": [
+          {
+            "name": "target",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ALL",
+                "STUDENT",
+                "FACULTY"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NoticeResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/faculty/{facultyId}/subjects": {
+      "get": {
+        "tags": [
+          "faculty-subject-controller"
+        ],
+        "operationId": "getFacultySubjects",
+        "parameters": [
+          {
+            "name": "facultyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FacultySubjectsResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/faculty/{department}": {
+      "get": {
+        "tags": [
+          "faculty-professional-controller"
+        ],
+        "operationId": "getFacultiesByDepartment",
+        "parameters": [
+          {
+            "name": "department",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FacultyProfessionalResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/courses/{code}/students": {
+      "get": {
+        "tags": [
+          "enrollment-controller"
+        ],
+        "operationId": "getCourseStudents",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseStudentsResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/courses/{code}/attendance": {
+      "get": {
+        "tags": [
+          "attendance-controller"
+        ],
+        "operationId": "viewAttendance",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentMonthlyAttendanceDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/students": {
+      "get": {
+        "tags": [
+          "student-controller"
+        ],
+        "operationId": "showStudentsByBranchAndSemester",
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "semester",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/grades/semester/{semester}": {
+      "get": {
+        "tags": [
+          "student-course-marks-controller"
+        ],
+        "operationId": "getStudentMarksheet",
+        "parameters": [
+          {
+            "name": "semester",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentCourseMarksResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/fee-reports/semester/{semester}": {
+      "get": {
+        "tags": [
+          "fee-payment-controller"
+        ],
+        "operationId": "getFeeReports",
+        "parameters": [
+          {
+            "name": "semester",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/SemesterFeeReportsResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/faculty/{employeeId}": {
+      "get": {
+        "tags": [
+          "faculty-professional-controller"
+        ],
+        "operationId": "getFacultyProfessional",
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacultyProfessionalResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SubjectDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 10,
+            "minLength": 3
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 3
+          },
+          "credits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "semester": {
+            "type": "string",
+            "minLength": 1
+          },
+          "department": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "code",
+          "credits",
+          "department",
+          "name",
+          "semester"
+        ]
+      },
+      "FeePaymentDTO": {
+        "type": "object",
+        "properties": {
+          "feeStructureId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentMode": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "UPI"
+            ]
+          }
+        },
+        "required": [
+          "amount",
+          "feeStructureId",
+          "paymentMode"
+        ]
+      },
+      "EnrollmentDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "courseId"
+        ]
+      },
+      "ExamMarksDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endSemMarks": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 100,
+            "minimum": 0
+          },
+          "studentRoll": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalMarks": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "courseId",
+          "endSemMarks",
+          "studentRoll"
+        ]
+      },
+      "InternalMarksDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quiz1": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 10,
+            "minimum": 0
+          },
+          "quiz2": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 10,
+            "minimum": 0
+          },
+          "assignment1": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 15,
+            "minimum": 0
+          },
+          "assignment2": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 15,
+            "minimum": 0
+          },
+          "midSem": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 50,
+            "minimum": 0
+          },
+          "studentRoll": {
+            "type": "string",
+            "minLength": 1
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalInternal": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "courseId",
+          "studentRoll"
+        ]
+      },
+      "AttendanceDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PRESENT",
+              "ABSENT",
+              "LEAVE"
+            ]
+          },
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "date",
+          "status",
+          "studentId"
+        ]
+      },
+      "StudentDTO": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rollNumber": {
+            "type": "string",
+            "maxLength": 20,
+            "minLength": 3
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^[6-9]\\d{9}$"
+          },
+          "passwordHash": {
+            "type": "string",
+            "maxLength": 2147483647,
+            "minLength": 8
+          },
+          "enrollYear": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 2100,
+            "minimum": 2000
+          },
+          "semester": {
+            "type": "string",
+            "minLength": 1
+          },
+          "branch": {
+            "type": "string",
+            "minLength": 1
+          },
+          "address": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 0
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "branch",
+          "email",
+          "name",
+          "passwordHash",
+          "rollNumber",
+          "semester"
+        ]
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "password": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "ApiResponseJwtLoginResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/JwtLoginResponse"
+          }
+        }
+      },
+      "JwtLoginResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "STUDENT",
+              "FACULTY",
+              "ADMIN"
+            ]
+          }
+        }
+      },
+      "FacultyDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^[6-9]\\d{9}$"
+          },
+          "passwordHash": {
+            "type": "string",
+            "maxLength": 2147483647,
+            "minLength": 8
+          },
+          "designation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "department": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "department",
+          "designation",
+          "email",
+          "name",
+          "passwordHash"
+        ]
+      },
+      "AdminDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "passwordHash": {
+            "type": "string",
+            "maxLength": 2147483647,
+            "minLength": 8
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^[6-9]\\d{9}$"
+          }
+        },
+        "required": [
+          "email",
+          "name",
+          "passwordHash"
+        ]
+      },
+      "NoticeDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 0
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "enum": [
+              "ALL",
+              "STUDENT",
+              "FACULTY"
+            ]
+          },
+          "postedDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "adminId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "adminId",
+          "content",
+          "expiryDate",
+          "target",
+          "title"
+        ]
+      },
+      "FeeStructureDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "academicYear": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\d{4}-\\d{4}"
+          },
+          "semester": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[1-8]$"
+          },
+          "tuitionFee": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "hostelFee": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "totalFee": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "academicYear",
+          "hostelFee",
+          "semester",
+          "tuitionFee"
+        ]
+      },
+      "FacultyProfessionalDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employeeId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "designation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "department": {
+            "type": "string",
+            "minLength": 1
+          },
+          "joiningDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "salary": {
+            "type": "number"
+          },
+          "facultyPersonalId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "department",
+          "designation",
+          "employeeId",
+          "facultyPersonalId",
+          "joiningDate",
+          "salary"
+        ]
+      },
+      "FacultySubjectDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "academicYear": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "facultyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subjectId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "academicYear",
+          "facultyId",
+          "subjectId"
+        ]
+      },
+      "CourseDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 10,
+            "minLength": 3
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 3
+          },
+          "semester": {
+            "type": "string"
+          },
+          "credits": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+          },
+          "department": {
+            "type": "string",
+            "minLength": 1
+          },
+          "academicYear": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\d{4}-\\d{2}"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "facultyProfessionalId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "academicYear",
+          "code",
+          "department",
+          "facultyProfessionalId",
+          "name",
+          "semester"
+        ]
+      },
+      "StudentUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "pattern": "^[6-9]\\d{9}$"
+          },
+          "address": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 0
+          }
+        }
+      },
+      "SubjectsResponseDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "credits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "semester": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          }
+        }
+      },
+      "StudentCourseMarksResponseDTO": {
+        "type": "object",
+        "properties": {
+          "rollNumber": {
+            "type": "string"
+          },
+          "studentName": {
+            "type": "string"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseDTO"
+          },
+          "internalMarksDto": {
+            "$ref": "#/components/schemas/InternalMarksDTO"
+          },
+          "examMarksDTO": {
+            "$ref": "#/components/schemas/ExamMarksDTO"
+          },
+          "grade": {
+            "type": "string"
+          }
+        }
+      },
+      "FeesDueResponseDTO": {
+        "type": "object",
+        "properties": {
+          "semester": {
+            "type": "string"
+          },
+          "totalFee": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "amountPaid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pendingAmount": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "FeeHistoryResponseDTO": {
+        "type": "object",
+        "properties": {
+          "semester": {
+            "type": "string"
+          },
+          "totalFee": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "amountPaid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentMode": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "UPI"
+            ]
+          },
+          "paymentStatus": {
+            "type": "string",
+            "enum": [
+              "PAID",
+              "PENDING"
+            ]
+          },
+          "receiptNumber": {
+            "type": "string"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "StudentResponseDTO": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rollNumber": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "enrollYear": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "semester": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          }
+        }
+      },
+      "NoticeResponseDTO": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "postedDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "FacultySubjectsResponseDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "semester": {
+            "type": "string"
+          }
+        }
+      },
+      "FacultyProfessionalResponseDTO": {
+        "type": "object",
+        "properties": {
+          "employeeId": {
+            "type": "string"
+          },
+          "designation": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "joiningDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "salary": {
+            "type": "number"
+          }
+        }
+      },
+      "CourseStudentDTO": {
+        "type": "object",
+        "properties": {
+          "rollNumber": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "enrollDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "DROPPED"
+            ]
+          }
+        }
+      },
+      "CourseStudentsResponseDTO": {
+        "type": "object",
+        "properties": {
+          "courseCode": {
+            "type": "string"
+          },
+          "courseName": {
+            "type": "string"
+          },
+          "totalStudents": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "students": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CourseStudentDTO"
+            }
+          }
+        }
+      },
+      "DayAttendanceDTO": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PRESENT",
+              "ABSENT",
+              "LEAVE"
+            ]
+          }
+        }
+      },
+      "StudentMonthlyAttendanceDTO": {
+        "type": "object",
+        "properties": {
+          "rollNumber": {
+            "type": "string"
+          },
+          "studentName": {
+            "type": "string"
+          },
+          "attendance": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DayAttendanceDTO"
+            }
+          }
+        }
+      },
+      "SemesterFeeReportsResponseDTO": {
+        "type": "object",
+        "properties": {
+          "semester": {
+            "type": "string"
+          },
+          "totalStudents": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalFeeExpected": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalFeeCollected": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalFeePending": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      }
+    }
+  }
+}
